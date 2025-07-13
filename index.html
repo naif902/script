@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Camera Test</title>
+</head>
+<body>
+  <h2>يرجى السماح باستخدام الكاميرا</h2>
+  <video id="video" width="640" height="480" autoplay></video>
+  <script>
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        document.getElementById('video').srcObject = stream;
+      })
+      .catch(err => {
+        alert("تم رفض الوصول إلى الكاميرا");
+      });
+  </script>
+</body>
+</html>
